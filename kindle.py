@@ -35,6 +35,17 @@ HTML_HEAD = '''<!DOCTYPE html>
 
 FOOTER_CONTENT = '''
 </div>
+<div id="disqus_thread"></div>
+<script id="dsq-count-scr" src="//kindle-502-li.disqus.com/count.js" async></script>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://kindle-502-li.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </html>
 '''
 
