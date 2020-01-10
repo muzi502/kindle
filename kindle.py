@@ -24,7 +24,6 @@ HTML_HEAD = '''<!DOCTYPE html>
 	<script type="text/javascript" src="../style/js/custom.js"></script>
 </head>
 <body>
-
 '''
 
 INDEX_TITLE = '''
@@ -40,19 +39,12 @@ INDEX_TITLE = '''
 BOOK_TITLE = '''
 	<div class="container">
 		<header class="header col-md-12">
+            <a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
 			<div class="page-header">
 				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge"></span></h1>
 			</div>
 		</header>
 	<div class="col-md-12">
-'''
-
-
-BOOK_NAME = '''
-		<header class="header col-md-12">
-					<a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
-		</header>
-		<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge">1</span></h1>
 '''
 
 SENTENCE_CONTENT = '''
@@ -62,8 +54,8 @@ SENTENCE_CONTENT = '''
                         <p>SENTENCE_TXT</p>
                     </div>
 					<div class="panel-footer text-right">
-						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span> 
-						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>SENTENCE_ADDR</span> 
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>SENTENCE_ADDR</span>
 						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>SENTENCE_TIME</span>
 					</div>
 				</div>
@@ -75,27 +67,13 @@ GRID_BEGIN = '''
 '''
 
 ITEM_CONTENT = '''
-        <a href="HTML_URL" class="list-group-item">
-        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME
-        <span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+        <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
 '''
-
 
 FOOTER_CONTENT = '''
         </div>
     </div>
 </div>
-<div id="disqus_thread"></div>
-<script id="dsq-count-scr" src="//kindle-502-li.disqus.com/count.js" async></script>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://kindle-502-li.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </html>
 '''
 
@@ -103,14 +81,18 @@ s.setAttribute('data-timestamp', +new Date());
 def changechar(s):
     return s.translate(str.maketrans(intab,outtab))
 
-# 处理sentence列表的方法函数
-def getAddr(s):  #获取标注位置
+# 获取标注位置
+def getAddr(s):
     g = s.split(" | ")[0]
     return g
-def getTime(s):  #获取添加时间
+
+# 获取添加时间
+def getTime(s):
     g = s.split(" | ")[1]
     return g.split("\n\n")[0]
-def getMark(s):  #获取标注内容
+
+# 获取标注内容
+def getMark(s):
     g = s.split(" | ")[1]
     try:
         return g.split("\n\n")[1]
@@ -121,13 +103,16 @@ def getMark(s):  #获取标注内容
 # 分割函数实现利用关键词进行简单的分割成列表
 # 结果为每一条单独的笔记，包含书名，时间，位置和内容
 f = open("source.txt", "r", encoding='utf-8')
-content = f.read()  # 读取全部内容
-content = content.replace(u'\ufeff', u'') #替换书名前的空格
+
+# 读取标注文件全部内容
+content = f.read()
+
+# 替换书名前的空格
+content = content.replace(u'\ufeff', u'')
 clips = content.split(BOUNDARY)
-print("列表个数：",clips.__len__()) # 获取列表的个数
-#for i in range(0,4):  #打印出4条标注
-    #print(clips[i])
-    #print('---------')
+
+# 获取列表的个数
+print("列表个数：",clips.__len__())
 sum = clips.__len__()
 
 # 获取书名存储为列表books，获取除书名外的内容为sentence
@@ -141,33 +126,24 @@ for i in range(0,sum):
     if (book != ['']): # 如果书名非空
         books.append(changechar(book[0])) #添加书名，替换特殊字符，以便创建文件
         sentence.append(book[1])          #添加笔记
-#print("both:",both)
-#print("books:",books)
-#print("sentence:",sentence)
 print('笔记总数：',sentence.__len__())
 
 # 去除书名列表中的重复元素
 nameOfBooks = list(set(books))
 nameOfBooks.sort(key=books.index)
 print('书籍总数：',nameOfBooks.__len__())
-#print(nameOfBooks)
 
 # 根据不同书名建立网页文件
 stceOfBookCnt = {}   # 记录每本书有几条标注的字典
-#print(os.listdir())
+# print(os.listdir())
 if os.path.exists('books'):
     shutil.rmtree('books')
-    print('rm books dir succ')
 os.mkdir('books') #创建一个books目录，用于存放书名网页文件
 # print(os.listdir())
 os.chdir('books') #更改工作目录
 for j in range(0,nameOfBooks.__len__()):
-    '''
-    # 文件名中含有特殊字符则不成创建成功，包括\/*?<>|字符
-    #if (nameOfBooks[j]!='Who Moved My Cheese? (Spencer Johnson)'):
-        #if (nameOfBooks[j]!='Send to Kindle | 当读书失去动力，你该如何重燃阅读的激情？ (kindle@eub-inc.com)'):
-    '''
-    # 网页文件的字符长度不能太长，以免无法在linux下创建
+
+# 网页文件的字符长度不能太长，以免无法在linux下创建
     if nameOfBooks[j].__len__() > 80:
         #print(nameOfBooks[j],"_len:",nameOfBooks[j].__len__())
         #print(nameOfBooks[j][0:90]+".html")
@@ -177,7 +153,6 @@ for j in range(0,nameOfBooks.__len__()):
     f.write(HTML_HEAD)   # 写入html头文件
     #s = nameOfBooks[j]
     f.write(BOOK_TITLE.replace('BookName',nameOfBooks[j]))
-    #f.write(BOOK_NAME.replace('BookName',nameOfBooks[j])) #写入书名
 
     f.close()
     stceOfBookCnt.__setitem__(nameOfBooks[j],0)  # 清零每本书的标注数量
@@ -185,7 +160,7 @@ for j in range(0,nameOfBooks.__len__()):
 # 向文件添加标注内容
 stce_succ_cnt = 0  # 向html文件添加笔记成功次数
 stce_fail_cnt = 0  # 向html文件添加笔记失败次数
-#print("html name:",os.listdir())
+# print("html name:",os.listdir())
 file_list = os.listdir(".") # 获取当前目录文件名，存放于file_list
 for j in range(0,sentence.__len__()):
     temp = both[j]
@@ -204,36 +179,18 @@ for j in range(0,sentence.__len__()):
                                     .replace("SENTENCE_ADDR",s1))
         else:
             stce_fail_cnt += 1
-            print("empty txt",stce_fail_cnt,filename)
         f.close()
-    else:
-        print("can't find filename html :",temp[0]+".html")
-print("sentence add succ cnt = ",stce_succ_cnt)
-print("sentence add fail cnt = ",stce_fail_cnt)
-#print(stceOfBookCnt)
 
-#向文件添加脚标
-#print("html name:",os.listdir())
+# 向文件添加脚标
 file_list = os.listdir(".") #获取当前目录文件名，存放于file_list
 html_count = file_list.__len__()
-print("file_list_count",html_count)
 for i in range(0,file_list.__len__()):
-    '''
-    检查文件名是否过长，验证上面的修改是否成功
-    '''
-    #print(i,file_list[i].__len__())
-    #if file_list[i].__len__() > 80:
-    #    print(file_list[i],"len:",file_list[i].__len__())
-
-    f = open(file_list[i],'a',encoding='utf-8') #打开对应的文件
+    f = open(file_list[i],'a',encoding='utf-8')
     f.write(FOOTER_CONTENT)
     f.close()
 
 # 处理index.html
 os.chdir("../")
-print("ls dir",os.listdir())
-
-# 打开对应的文件
 f=open("index.html",'w',encoding='utf-8')
 
 # 写入html头内容
@@ -241,10 +198,11 @@ f.write(HTML_HEAD.replace("../","")
                  .replace("SENTENCE_SUM",str(sentence.__len__()))
                  .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
-
+# 写入数的数量和标注的总数
 f.write(INDEX_TITLE.replace("SENTENCE_SUM",str(sentence.__len__()))
-                   .replace("BOOKS_SUM",str(nameOfBooks.__len__())))  
+                   .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
+# 写入书籍列表以及每本书的标注数量
 f.write(GRID_BEGIN)
 for i in range(0,html_count):
     html_url = "books/"+file_list[i]
