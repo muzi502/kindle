@@ -24,30 +24,29 @@ HTML_HEAD = '''<!DOCTYPE html>
 	<script type="text/javascript" src="../style/js/custom.js"></script>
 </head>
 <body>
+
+'''
+
+INDEX_TITLE = '''
 	<div class="container">
 		<header class="header col-md-12">
 			<div class="page-header">
-				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge"></span></h1>
+				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
 			</div>
 		</header>
 	<div class="col-md-12">
 '''
 
-FOOTER_CONTENT = '''
-</div>
-<div id="disqus_thread"></div>
-<script id="dsq-count-scr" src="//kindle-502-li.disqus.com/count.js" async></script>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://kindle-502-li.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</html>
+BOOK_TITLE = '''
+	<div class="container">
+		<header class="header col-md-12">
+			<div class="page-header">
+				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge"></span></h1>
+			</div>
+		</header>
+	<div class="col-md-12">
 '''
+
 
 BOOK_NAME = '''
 		<header class="header col-md-12">
@@ -71,24 +70,33 @@ SENTENCE_CONTENT = '''
 			</article>
 '''
 
-ABOUT_PAGE = '''
-<div class="ui divider"></div>
-    <h1 class="ui center teal aligned header">共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</h1>
-'''
-
 GRID_BEGIN = '''
     <div class="list-group">
-'''
-
-GRID_END = '''
-        </div>
-    </div>
 '''
 
 ITEM_CONTENT = '''
         <a href="HTML_URL" class="list-group-item">
         <span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME
         <span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+'''
+
+
+FOOTER_CONTENT = '''
+        </div>
+    </div>
+</div>
+<div id="disqus_thread"></div>
+<script id="dsq-count-scr" src="//kindle-502-li.disqus.com/count.js" async></script>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://kindle-502-li.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</html>
 '''
 
 # 替换不能用作文件名的字符
@@ -168,7 +176,9 @@ for j in range(0,nameOfBooks.__len__()):
     f = open(nameOfBooks[j]+".html",'w',encoding='utf-8') # 创建网页文件
     f.write(HTML_HEAD)   # 写入html头文件
     #s = nameOfBooks[j]
-    f.write(BOOK_NAME.replace('BookName',nameOfBooks[j])) #写入书名
+    f.write(BOOK_TITLE.replace('BookName',nameOfBooks[j]))
+    #f.write(BOOK_NAME.replace('BookName',nameOfBooks[j])) #写入书名
+
     f.close()
     stceOfBookCnt.__setitem__(nameOfBooks[j],0)  # 清零每本书的标注数量
 
@@ -227,19 +237,20 @@ print("ls dir",os.listdir())
 f=open("index.html",'w',encoding='utf-8')
 
 # 写入html头内容
-f.write(HTML_HEAD.replace("../",""))
+f.write(HTML_HEAD.replace("../","")
+                 .replace("SENTENCE_SUM",str(sentence.__len__()))
+                 .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
-# 处理数目
-# f.write(ABOUT_PAGE.replace("PIC_NAME",random.randint(1,10).__str__())
-#                    .replace("BOOKS_SUM",str(nameOfBooks.__len__()))
-#                    .replace("SENTENCE_SUM",str(sentence.__len__())))
+
+f.write(INDEX_TITLE.replace("SENTENCE_SUM",str(sentence.__len__()))
+                   .replace("BOOKS_SUM",str(nameOfBooks.__len__())))  
+
 f.write(GRID_BEGIN)
 for i in range(0,html_count):
     html_url = "books/"+file_list[i]
     html_name = file_list[i].replace(".html",'')
     f.write(ITEM_CONTENT.replace("HTML_URL",html_url)
                         .replace("HTML_FILE_NAME",html_name)
-                        .replace("SENTENCE_COUNT",str(stceOfBookCnt[html_name]))) # 写入本书标注数量
-f.write(GRID_END)
+                        .replace("SENTENCE_COUNT",str(stceOfBookCnt[html_name])))
 f.write(FOOTER_CONTENT)
 f.close()
