@@ -6,4 +6,4 @@
 - 1、从 kindle 中拷贝出标注文件，重命名为 source.txt。
 - 2、下载本项目源码，使用你的 source.txt 进行替换。
 - 3、在 Python3 环境下执行 `python kindle.py` 指令，等待生成网页文件。
-（如果报错`TypeError: 'encoding' is an invalid keyword argument for this function`,需要执行 `python3 demo.py` 指令）
+（如果报错`TypeError: 'encoding' is an invalid keyword argument for this function`,需要执行 `python3 kindle.py` 指令）
