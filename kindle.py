@@ -39,20 +39,26 @@ INDEX_TITLE = '''
 BOOK_TITLE = '''
 	<div class="container">
 		<header class="header col-md-12">
-            <a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
 			<div class="page-header">
 				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge"></span></h1>
 			</div>
 		</header>
-	<div class="col-md-12">
+
+        <div class="col-md-2">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="active text-center">
+					<a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
+				</li>
+			</ul>
+		</div>
 '''
 
 SENTENCE_CONTENT = '''
+    	<div class="col-md-12">
 			<article>
 				<div class="panel panel-default">
-					<div class="panel-body mk88">
-                        <p>SENTENCE_TXT</p>
-                    </div>
+					<div class="panel-body mk88"><p>SENTENCE_TXT
+                    </p></div>
 					<div class="panel-footer text-right">
 						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
 						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>SENTENCE_ADDR</span>
@@ -60,20 +66,16 @@ SENTENCE_CONTENT = '''
 					</div>
 				</div>
 			</article>
-'''
-
-GRID_BEGIN = '''
-    <div class="list-group">
+        </div>
 '''
 
 ITEM_CONTENT = '''
-        <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+        <div class="list-group">
+            <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
 '''
 
 FOOTER_CONTENT = '''
-        </div>
     </div>
-</div>
 </html>
 '''
 
@@ -202,13 +204,22 @@ f.write(HTML_HEAD.replace("../","")
 f.write(INDEX_TITLE.replace("SENTENCE_SUM",str(sentence.__len__()))
                    .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
-# 写入书籍列表以及每本书的标注数量
-f.write(GRID_BEGIN)
+# 根据标注数量对书籍列表进行排序
+book_list = []
 for i in range(0,html_count):
     html_url = "books/"+file_list[i]
     html_name = file_list[i].replace(".html",'')
-    f.write(ITEM_CONTENT.replace("HTML_URL",html_url)
-                        .replace("HTML_FILE_NAME",html_name)
-                        .replace("SENTENCE_COUNT",str(stceOfBookCnt[html_name])))
+    book_item = [html_url,html_name,int(stceOfBookCnt[html_name])]
+    book_list.append(book_item)
+book_list.sort(key=lambda x: x[2], reverse=True)
+
+# 写入书籍列表以及每本书的标注数量
+for i in range(0,html_count):
+    url = book_list[i][0]
+    name = book_list[i][1]
+    num = book_list[i][2]
+    f.write(ITEM_CONTENT.replace("HTML_URL",url)
+                        .replace("HTML_FILE_NAME",name)
+                        .replace("SENTENCE_COUNT",str(num)))
 f.write(FOOTER_CONTENT)
 f.close()
