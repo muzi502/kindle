@@ -200,7 +200,7 @@ f.write(HTML_HEAD.replace("../","")
                  .replace("SENTENCE_SUM",str(sentence.__len__()))
                  .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
-# 写入数的数量和标注的总数
+# 写入书的数量和标注的总数
 f.write(INDEX_TITLE.replace("SENTENCE_SUM",str(sentence.__len__()))
                    .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
