@@ -4,6 +4,7 @@ import os,os.path
 import shutil
 import random
 import string
+import time
 
 BOUNDARY = u"==========\n" #分隔符
 intab = "\/:*?\"<>|"
@@ -30,7 +31,7 @@ INDEX_TITLE = '''
 	<div class="container">
 		<header class="header col-md-12">
 			<div class="page-header">
-				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
+				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge">更新于 UPDATE </span> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
 			</div>
 		</header>
 	<div class="col-md-12">
@@ -196,12 +197,11 @@ os.chdir("../")
 f=open("index.html",'w',encoding='utf-8')
 
 # 写入html头内容
-f.write(HTML_HEAD.replace("../","")
-                 .replace("SENTENCE_SUM",str(sentence.__len__()))
-                 .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
+f.write(HTML_HEAD.replace("../",""))
 
 # 写入书的数量和标注的总数
 f.write(INDEX_TITLE.replace("SENTENCE_SUM",str(sentence.__len__()))
+                   .replace("UPDATE",time.strftime("%Y-%m-%d %H:%M", time.localtime()))
                    .replace("BOOKS_SUM",str(nameOfBooks.__len__())))
 
 # 根据标注数量对书籍列表进行排序
