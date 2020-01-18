@@ -35,6 +35,8 @@ INDEX_TITLE = '''
 			</div>
 		</header>
 	<div class="col-md-12">
+        <div class="list-group">
+
 '''
 
 BOOK_TITLE = '''
@@ -71,12 +73,12 @@ SENTENCE_CONTENT = '''
 '''
 
 ITEM_CONTENT = '''
-        <div class="list-group">
             <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
 '''
 
 FOOTER_CONTENT = '''
     </div>
+</body>
 </html>
 '''
 
