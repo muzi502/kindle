@@ -72,11 +72,11 @@ SENTENCE_CONTENT = '''
         </div>
 '''
 
-ITEM_CONTENT = '''
-            <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+ITEM_CONTENT = '''          <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
 '''
 
 FOOTER_CONTENT = '''
+        </div>
     </div>
 </body>
 </html>
@@ -216,7 +216,7 @@ for i in range(0,html_count):
 book_list.sort(key=lambda x: x[2], reverse=True)
 
 # 写入书籍列表以及每本书的标注数量
-for i in range(0,html_count):
+for i in range(0,html_count - 1):
     url = book_list[i][0]
     name = book_list[i][1]
     num = book_list[i][2]
