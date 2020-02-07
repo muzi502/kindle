@@ -20,9 +20,6 @@ HTML_HEAD = '''<!DOCTYPE html>
 	<link href="../style/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<link href="../style/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 	<link href="../style/css/custom.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="../style/js/jquery-1.12.2.min.js"></script>
-	<script type="text/javascript" src="../style/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../style/js/custom.js"></script>
 </head>
 <body>
 '''
