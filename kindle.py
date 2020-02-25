@@ -45,9 +45,9 @@ BOOK_TITLE = '''
 		</header>
 
         <div class="col-md-2">
-			<ul class="nav nav-pills nav-stacked">
+			<ul class="nav nav-pills nav-stacked go-back">
 				<li role="presentation" class="active text-center">
-					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward go-back" aria-hidden="true"></span> 返回目录</a>
+					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward go-back" aria-hidden="true"></span></a>
 				</li>
 			</ul>
 		</div>
