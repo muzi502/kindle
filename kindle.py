@@ -47,7 +47,7 @@ BOOK_TITLE = '''
         <div class="col-md-2">
 			<ul class="nav nav-pills nav-stacked go-back">
 				<li role="presentation" class="active text-center">
-					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward go-back" aria-hidden="true"></span></a>
+					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a>
 				</li>
 			</ul>
 		</div>
