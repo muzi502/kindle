@@ -49,9 +49,6 @@ BOOK_TITLE = '''
 				<li role="presentation" class="active text-center">
 					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a>
 				</li>
-                <li role="presentation" class="active text-center" onclick="document.documentElement.scrollTop = 0">
-                
-				</li>
 			</ul>
 		</div>
 '''
