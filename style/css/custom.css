@@ -35,3 +35,11 @@ h1{
     background-color: #777;
     border-radius: 10px;
 }
+
+.go-back{
+  position: fixed;
+      right: 2vw;
+      bottom: 3vh;
+      z-index: 5;
+      border-radius: 50%;
+  }
