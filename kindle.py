@@ -33,7 +33,6 @@ INDEX_TITLE = '''
 		</header>
 	<div class="col-md-12">
         <div class="list-group">
-
 '''
 
 BOOK_TITLE = '''
