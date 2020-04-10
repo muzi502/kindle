@@ -8,6 +8,13 @@
 - 2、下载本项目源码，使用你的 source.txt 进行替换。
 - 3、在 Python3 环境下执行 `python3 kindle.py` 指令，等待生成网页文件。
 
+```shell
+git clone https://github.com/muzi502/kindle
+cd kindle
+cat /your/path/My Clippings.txt > source.txt
+python3 kindle.py
+```
+
 ## 相关脚本
 
 在 Windows 环境下可以使用 .bat 脚本来自动复制 `My Clippings.txt` 文件到相应的位置。根据自己的环境修改相应的变量即可。
