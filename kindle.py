@@ -213,7 +213,7 @@ for i in range(0,html_count):
 book_list.sort(key=lambda x: x[2], reverse=True)
 
 # 写入书籍列表以及每本书的标注数量
-for i in range(0,html_count - 1):
+for i in range(0,html_count):
     url = book_list[i][0]
     name = book_list[i][1]
     num = book_list[i][2]
