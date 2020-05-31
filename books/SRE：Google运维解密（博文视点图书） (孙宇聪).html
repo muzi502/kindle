@@ -145,6 +145,51 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>当修复某个运行在生产环境中的软件的Bug，而需要重新构建之前的一个发布版本时，一般来说是比较复杂的。Google按照之前的源代码版本，加入一些后来提交的改动来构建新的发布来解决这个问题，这种方式被称为摘樱桃（cherry picking）。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2297-2300的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年5月30日星期六 上午10:28:12</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>构建目标（二进制文件，以及对应的测试等）定义在Rapid的项目配置文件中。某个项目特有的功能开关，例如一些特有的构建标识符等，会由Rapid传递给Blaze。所有二进制文件都支持用一个命令显示自身的构建时间、构建源代码版本，以及构建标识符，这样我们就可以很容易地将一个二进制文件与构建过程对应起来。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2318-2321的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年5月30日星期六 上午10:30:21</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>所有的代码都默认提交到主分支上（mainline）。然而，大部分的项目都不会直接从主分支上进行直接发布。我们会基于主分支的某一个版本创建新分支，新分支的内容永远不会再合并入主分支。Bug修复先提交到主分支，再cherry picking到发布分支上。这种方式可以避免在第一次构建之后，再引入主分支上的其他的无关改动。利用这种分支与cherry picking的方法，可以明确每个发布版本中包含的全部改动。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2322-2326的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年5月30日星期六 上午10:31:04</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
