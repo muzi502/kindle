@@ -205,6 +205,81 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>https://gravitational.com/blog/troubleshooting-kubernetes-networking.
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2922-2922的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月26日星期五 下午5:39:19</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>因为IPVS的netfilter钩子挂载INPUT链，我们需要把Service的访问IP绑定在dummy网卡上让内核“觉得”虚IP就是本机IP，进而进入INPUT链。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3093-3094的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月26日星期五 下午8:50:22</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>IPVS虽然有三种代理模式NAT、ipip和DR，但只有NAT模式支持端口映射。因此，Kube-proxy的IPVS使用了NAT模式，为的就是支持端口映射。一个
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3103-3104的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月26日星期五 下午8:52:20</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>在内核中，所有由netfilter框架实现的连接跟踪模块称作conntrack（connection tracking）。在DNAT的过程中，conntrack使用状态机启动并跟踪连接状态。为什么需要记录连接的状态呢？因为iptables/IPVS做了DNAT后需要记住数据包的目的地址被改成了什么，并且在返回数据包时将目的地址改回来。除此之外，iptables还可以依靠conntrack的状态（cstate）决定数据包的命运。其中最主要的4个conntrack状态如下：
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3128-3132的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月26日星期五 下午8:55:42</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>需要注意的是，上面输出的最后一栏显示的不是进程的ID和名称，而是一个破折号“-”，这说明8472这个UDP端口不是由用户态的进程监听的，而是flannel的VXLAN模式工作在内核态下。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3879-3881的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月27日星期六 上午7:45:42</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
