@@ -100,6 +100,96 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>IO可以分为读/写IO、大/小块IO、连续/随机IO、顺序/并发IO、稳定/突发IO、持续/间断IO和实/虚IO。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2610-2610的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月28日星期日 下午10:58:32</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>（1）同步IO：同步IO是指程序的某一个进程或者线程，如果某时刻调用了同步IO接口，则IO请求发出后，这个进程或者线程必须等待IO路径上的下位程序返回的信号（不管是成功收到数据的信号还是失败的信号）。如果不能立刻收到下位的信号；则一直处于等待状态，不继续执行后续的代码，被操作系统挂起，操作系统继续执行其他的进程或者线程。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3669-3673的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月28日星期日 下午11:29:22</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>异步IO：异步IO请求发出后，操作系统会继续执行本线程或者进程中后续的代码，直到时间片到时或者因其他原因被挂起。异步IO模式下，应用程序的响应速度不会受IO瓶颈的影响，即使这个IO很长时间没有完成。虽然应用程序得不到它要的数据，但不会影响其他功能的执行。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3678-3681的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月28日星期日 下午11:31:02</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>基于这个结果，很多数据库在异步IO的情况下，都会将负责把缓存Flush到磁盘的进程（Oracle中这个进程为DBWR进程）数量设置成比较低的数值，甚至为1。因为在异步IO的情况下，Flush进程不必挂起以等待IO完成，所以即使使用很多的Flush进程，也与使用1个进程效果差不多。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3681-3683的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月28日星期日 下午11:31:08</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>未接收到确认的包会存放在缓冲区内，不会删除，直到收到对方确认。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #4094-4095的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月29日星期一 上午6:56:07</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>提示：由于Fiber和Fibre只有一字之差，所以产生了很多流传的误解。FC只代表Fibre Channel，而不是Fiber Channel，后者被翻译为“光纤通道”，甚至接口为FC的磁盘也被称为“光纤磁盘”，其实这些都是很滑稽的误解。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #4175-4177的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月29日星期一 下午9:38:01</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
