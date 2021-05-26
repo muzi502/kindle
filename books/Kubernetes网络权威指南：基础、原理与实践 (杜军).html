@@ -280,6 +280,51 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>Kubernetes为“normal”和“headless”服务分配不同的A Record name。“headless”服务与“normal”服务的不同之处在于它们未分配Cluster IP且不执行负载均衡。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2605-2607的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2021年5月25日星期二 上午7:20:55</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>SNAT导致Linux内核丢包的原因在于其conntrack的实现。SNAT代码在POSTROUTING链上被调用两次。首先通过修改源地址和/或端口修改包的结构，如果包在这个过程中没有丢失，则内核在conntrack表中记录这个转换。这意味着在SNAT端口分配和插入conntrack表之间有一个时延，如果有冲突的话可能最终导致插入失败及丢包。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #2890-2892的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2021年5月25日星期二 下午9:51:19</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>具体来说，IPVS模式的Kube-proxy将在以下4种情况下依赖iptables： ·Kube-proxy配置启动参数masquerade-all=true，即集群中所有经过Kube-proxy的包都做一次SNAT； ·Kube-proxy启动参数指定集群IP地址范围； ·支持Load Balancer类型的服务，用于配置白名单； ·支持NodePort类型的服务，用于在包跨节点前配置MASQUERADE，类似于上文提到的iptables模式。
+
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> 您在位置 #3107-3113的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2021年5月26日星期三 上午1:32:05</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
