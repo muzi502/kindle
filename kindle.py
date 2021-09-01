@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import re
 import os,os.path
 import shutil
@@ -6,73 +6,72 @@ import random
 import string
 import time
 
-BOUNDARY = u"==========\n" #分隔符
+# 分隔符
+BOUNDARY = u"==========\n"
+
+# 用于替换特殊字符
 intab = "\/:*?\"<>|"
-outtab = "  ： ？“《》 "     #用于替换特殊字符
-#trantab = maketrans(intab, outtab)
+outtab = "  ： ？“《》 "
 
 HTML_HEAD = '''<!DOCTYPE html>
-<html>
-	<head>
-	<meta charset="utf-8" />
-	<title> Kindle 读书笔记 </title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="../style/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link href="../style/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-	<link href="../style/css/custom.css" rel="stylesheet" type="text/css" />
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title> Kindle 读书笔记 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../style/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../style/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../style/css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 '''
 
-INDEX_TITLE = '''
-	<div class="container">
-		<header class="header col-md-12">
-			<div class="page-header">
-				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge">更新于 UPDATE </span> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
-			</div>
-		</header>
-	<div class="col-md-12">
-        <div class="list-group">
-
+INDEX_TITLE = '''    <div class="container">
+        <header class="header col-md-12">
+            <div class="page-header">
+                <h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge">更新于 UPDATE </span> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
+            </div>
+        </header>
+        <div class="col-md-12">
+            <div class="list-group">
 '''
 
-BOOK_TITLE = '''
-	<div class="container">
-		<header class="header col-md-12">
-			<div class="page-header">
-				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge"></span></h1>
-			</div>
-		</header>
-
+BOOK_TITLE = '''    <div class="container">
+        <header class="header col-md-12">
+            <div class="page-header">
+                <h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>BookName</small> <span class="badge"></span></h1>
+            </div>
+        </header>
         <div class="col-md-2">
-			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation" class="active text-center">
-					<a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
-				</li>
-			</ul>
-		</div>
-'''
-
-SENTENCE_CONTENT = '''
-    	<div class="col-md-12">
-			<article>
-				<div class="panel panel-default">
-					<div class="panel-body mk88"><p>SENTENCE_TXT
-                    </p></div>
-					<div class="panel-footer text-right">
-						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
-						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>SENTENCE_ADDR</span>
-						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>SENTENCE_TIME</span>
-					</div>
-				</div>
-			</article>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active text-center">
+                    <a href="../index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 返回目录</a>
+                </li>
+            </ul>
         </div>
 '''
 
-ITEM_CONTENT = '''          <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+SENTENCE_CONTENT = '''      <div class="col-md-12">
+            <article>
+                <div class="panel panel-default">
+                    <div class="panel-body mk88">
+                        <p>
+                            SENTENCE_TXT
+                        </p>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+                        <span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>SENTENCE_ADDR</span>
+                        <span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>SENTENCE_TIME</span>
+                    </div>
+                </div>
+            </article>
 '''
 
-FOOTER_CONTENT = '''
+ITEM_CONTENT = '''                <a href="HTML_URL" class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>HTML_FILE_NAME<span class="glyphicon glyphicon-tag" aria-hidden="true">SENTENCE_COUNT</span></a>
+'''
+
+FOOTER_CONTENT = '''            </div>
         </div>
     </div>
 </body>
