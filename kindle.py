@@ -73,15 +73,8 @@ FOOTER_CONTENT = """
 """
 
 DELIMITER = u"==========\n"
-halfwidth_chars = '()\/:*?"<>|'
-fullwidth_chars = "（）  ： ？“《》 "
 all_books = []
 all_marks = []
-
-
-def replace_chars(s):
-    """replace halfwidth chars to fullwidth chars"""
-    return s.translate(str.maketrans(halfwidth_chars, fullwidth_chars))
 
 
 def get_book_index(book_name):
@@ -103,17 +96,13 @@ def render_clippings(file_name):
         mark = all_marks[i].split("\n")
         if len(mark) == 4:
             book_url = md5(mark[0].encode("utf-8")).hexdigest()
-            book_info = re.split(r"[（）《》【】｜]\s*", replace_chars(mark[0]))
-            book_name = (
-                book_info[0].strip()
-                if str(book_info[0].strip()) != ""
-                else replace_chars(mark[0])
-            )
-            book_author = book_info[-2].strip() if len(book_info) > 2 else ""
+            book_info = re.split(r"[()<>|\[\]（）《》【】｜]\s*", mark[0])
+            book_name = book_info[0] if str(book_info[0]) != "" else (mark[0])
+            book_author = book_info[-2] if len(book_info) > 2 else ""
             mark_info = mark[1].split("|")
-            mark_time = mark_info[1].strip()
+            mark_time = mark_info[1]
             mark_address = mark_info[0].strip("- ")
-            mark_content = mark[2].strip()
+            mark_content = mark[2]
             book_index = get_book_index(book_name)
             if book_index == -1:
                 all_books.append(
@@ -154,11 +143,14 @@ def render_books_html():
         shutil.rmtree("books")
     os.mkdir("books")
     for i in range(len(all_books)):
-        book_url = str(all_books[i]["url"])
-        book_name = str(all_books[i]["name"])
+        book_url = all_books[i]["url"]
+        book_name = all_books[i]["name"]
+        book_author = all_books[i]["author"]
         with open("books/" + book_url + ".html", "w", encoding="utf-8") as f:
             f.write(HTML_HEAD)
-            f.write(BOOK_TITLE.replace("BookName", book_name))
+            f.write(
+                BOOK_TITLE.replace("BookName", book_name + " [" + book_author + "]")
+            )
             for j in range(len(all_books[i]["marks"])):
                 mark = all_books[i]["marks"][j]
                 f.write(
