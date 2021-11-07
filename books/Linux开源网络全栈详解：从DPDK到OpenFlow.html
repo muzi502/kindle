@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<title> Kindle 读书笔记 </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="../style/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="../style/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+	<link href="../style/css/custom.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<div class="container">
+		<header class="header col-md-12">
+			<div class="page-header">
+				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Linux开源网络全栈详解：从DPDK到OpenFlow</small> <span class="badge"></span></h1>
+			</div>
+		</header>
+
+        <div class="col-md-2">
+			<ul class="nav nav-pills nav-stacked go-back">
+				<li role="presentation" class="active text-center">
+					<a href="../index.html" style="border-radius: 50%;"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a>
+				</li>
+			</ul>
+		</div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>EPA除DPDK以外的主要技术是大页、NUMA和SR-IOV：大页通过减少页面查找提高VNF的效率；NUMA确保工作负载使用处理器本地的内存；SR-IOV可以使网络流量旁路管理程序，直接转到虚拟机。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #503-504的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午12:14:19</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>TAP/TUN是Linux内核实现的一对虚拟网络设备，TAP工作在二层，TUN工作在三层，Linux内核通过TAP/TUN设备向绑定该设备的用户空间应用发送数据；反之，用户空间应用也可以像操作硬件网络设备那样，通过TAP/TUN设备发送数据。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #628-630的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午3:51:19</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>需要注意的是，VLAN实现的只是二层的隔离，A和 B无法相互访问指的是二层广播包（比如arp）无法跨越 VLAN 的边界，但在三层上（比如IP地址）是可以通过路由器让A和B互通的。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #800-802的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午4:23:44</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>处理器和操作系统在内存管理中采用受保护的虚拟地址模式，程序使用虚拟地址访问内存，而处理器在收到虚拟地址后，先通过分段机制映射转化为线性地址，然后线性地址通过分页机制映射转化为物理地址。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #981-983的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午6:19:50</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>那硬直通的本质是什么呢？其主要解决了三部分的问题：设备BAR配置空间的访问、DMA 内存请求的直达、中断请求的送达。第一部分有很多方法解决，比如trap-emulation的方式，或通过MMIO的页表映射。第二部分和第三部分需要平台特性的支持，这个特性就是IOMMU（比如Intel VT-d、AMD-Vi）。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1139-1142的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午6:25:45</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>SR-IOV网络插件将网卡的SR-IOV技术应用到容器中，通过将网卡VF加入容器的网络命名空间，容器运行时可以直接看到网卡。利用DPDK的用户态VF驱动，容器运行时可以实现高速的网络收发包。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1212-1213的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午6:32:16</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>目前OCI主要有两个标准文档：容器运行时标准（runtime spec）和容器镜像标准（image spec）。如图6-3所示，两个协议通过 OCI Runtime filesytem bundle 标准格式连接在一起，OCI 镜像可以通过工具转换成 bundle，然后OCI容器引擎能够识别 bundle 来运行容器。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #2395-2398的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>添加于 2020年6月21日星期日 下午8:55:09</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>
