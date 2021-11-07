@@ -3,6 +3,7 @@ import sys
 import os.path
 import shutil
 import time
+from hashlib import md5
 
 HTML_HEAD = """<!DOCTYPE html>
 <html>
@@ -101,6 +102,7 @@ def render_clippings(file_name):
     for i in range(len(all_marks)):
         mark = all_marks[i].split("\n")
         if len(mark) == 4:
+            book_url = md5(mark[0].encode("utf-8")).hexdigest()
             book_info = re.split(r"[（）《》【】｜]\s*", replace_chars(mark[0]))
             book_name = (
                 book_info[0].strip()
@@ -115,7 +117,13 @@ def render_clippings(file_name):
             book_index = get_book_index(book_name)
             if book_index == -1:
                 all_books.append(
-                    {"name": book_name, "author": book_author, "nums": 0, "marks": []}
+                    {
+                        "name": book_name,
+                        "author": book_author,
+                        "url": book_url,
+                        "nums": 0,
+                        "marks": [],
+                    }
                 )
             all_books[book_index]["marks"].append(
                 {"time": mark_time, "address": mark_address, "content": mark_content}
@@ -134,7 +142,7 @@ def render_index_html():
         )
         for book in all_books:
             f.write(
-                ITEM_CONTENT.replace("HTML_URL", "books/" + book["name"] + ".html")
+                ITEM_CONTENT.replace("HTML_URL", "books/" + book["url"] + ".html")
                 .replace("HTML_FILE_NAME", book["name"] + " [" + book["author"] + "]")
                 .replace("SENTENCE_COUNT", str(book["nums"]))
             )
@@ -146,8 +154,9 @@ def render_books_html():
         shutil.rmtree("books")
     os.mkdir("books")
     for i in range(len(all_books)):
-        book_name = str(all_books[i]["name"][0:80])
-        with open("books/" + book_name + ".html", "w", encoding="utf-8") as f:
+        book_url = str(all_books[i]["url"])
+        book_name = str(all_books[i]["name"])
+        with open("books/" + book_url + ".html", "w", encoding="utf-8") as f:
             f.write(HTML_HEAD)
             f.write(BOOK_TITLE.replace("BookName", book_name))
             for j in range(len(all_books[i]["marks"])):
