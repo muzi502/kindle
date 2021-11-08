@@ -109,6 +109,76 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>关于NVMe-oF，目前有两种类型的传输正在开发，使用RDMA的NVMe-oF和使用FC-NVMe的NVMe-oF。这里的RDMA包括了InfiniBand、RoCE（RDMA over Converged Ethernet）和iWARP（internet Wide Area RDMA Protocol），RDMA支持在不涉及处理器的情况下将数据传输到两台计算机的内存，并提供低延迟和快速的数据传输。从逻辑架构上看，与NVMe over PCIe相比，NVMe over RDMA在软件开销上的增加很小，可以近似地认为跨网络访问和本地访问的延迟几乎是一样的。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1304-1308的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月7日星期日 下午12:56:57</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>宽泛一点来说，Linux存储系统包括两个部分：第一部分是站在用户的角度提供读/写的接口，数据以流为表现形式；第二部分是站在存储设备的角度提供读/写接口，数据以块为表现形式。文件系统位于两者中间起到承上启下的作用。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1371-1373的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月7日星期日 下午1:01:28</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>Direct I/O最主要的优点就是通过减少内核缓冲区和用户空间的数据复制次数，降低文件读/写时所带来的CPU负载能力及内存带宽的占用率。如果传输的数据量很大，使用Direct I/O的方式将会大大提高性能。然而，不经过内核缓冲区直接进行磁盘的读/写，必然会引起阻塞，因此通常Direct I/O与AIO（异步I/O）一起使用。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1634-1637的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月7日星期日 下午8:28:48</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>超线程技术（Hyperthreading）是指操作系统将每个物理核识别为两个可以并行工作的逻辑核，它们有自己独立的寄存器，但是共用主要的执行单元。这得益于超标量（Superscaler）技术，软件可以通过CPU同时分发多条指令到空闲的执行单元，最大限度地利用CPU的计算资源。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #1878-1881的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月7日星期日 下午8:49:01</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>如前所述，virtio后端设备用于具体响应Guest的命令请求。例如，对virtio-scsi设备来讲，该virtio后端负责SCSI命令的响应，QEMU负责模拟该PCI设备，把该SCSI命令响应的模块在QEMU进程之外实现的方案称为vhost。这里同样分为两种实现方式，在Linux内核中实现的叫作vhost-kernel，而在用户态实现的叫作vhost-user。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #2715-2718的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月7日星期日 下午11:16:33</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
