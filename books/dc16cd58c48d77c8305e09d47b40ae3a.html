@@ -39,6 +39,76 @@
 			</article>
         </div>
 
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>基于TAP驱动，可以实现虚拟网卡的功能，虚拟机的每个vNIC都与Hypervisor中的一个TAP设备相连。当一个TAP设备被创建时，在Linux设备文件目录下将会生成一个对应的字符设备文件，用户程序可以像打开普通文件一样打开这个文件进行读写。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #4881-4883的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月17日星期三 下午11:55:28</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>目前新兴的解决方案是预先制作好磁盘镜像，使用PXE启动到一个预先定制的系统，然后把准备部署的镜像使用dd命令复制到目标磁盘，再通过cloud-init来完成系统的定制化。这种方式可以在几分钟内完成一个系统的安装，OpenStack的Ironic项目及Ubuntu的MaaS都是通过这种方式管理部署系统的。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #7268-7271的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月18日星期四 上午9:03:14</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>V2P的好处显而易见，之所以在部署虚拟机时这么快，是因为一切的安装配置过程都已经在制作镜像模板时完成了，只需要像挂载硬盘一样挂载上去即可。由此引申到OpenStack部署中，我们同样可以事先对不同类型的服务器节点制作好镜像，在部署时像部署虚拟机一样，只需要挂载镜像即可，从而节省很多常规的安装配置时间。TripleO就采用了这种方式来完成部署。 TripleO全称为OpenStack On OpenStack，
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #7433-7437的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月18日星期四 上午9:12:48</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>V2P的好处显而易见，之所以在部署虚拟机时这么快，是因为一切的安装配置过程都已经在制作镜像模板时完成了，只需要像挂载硬盘一样挂载上去即可。由此引申到OpenStack部署中，我们同样可以事先对不同类型的服务器节点制作好镜像，在部署时像部署虚拟机一样，只需要挂载镜像即可，从而节省很多常规的安装配置时间。TripleO就采用了这种方式来完成部署。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #7433-7437的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月18日星期四 上午9:12:53</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
+    	<div class="col-md-12">
+			<article>
+				<div class="panel panel-default">
+					<div class="panel-body mk88"><p>DiskImage-Builder的工作原理就是利用chroot来制作镜像。镜像可以是一个文件系统，或者是一个包含文件系统的磁盘镜像文件，通过把镜像格式改成RAW格式来挂载到系统上，然后开始定制化修改，最后把镜像转换为QCOW2等格式。目前已经支持的镜像系统模板有Fedora、RHEL、CentOS和Ubuntu，后期还会加入对Linux其他发行版的支持。而对于Windows的支持将在另一个项目Windows-Image-Builder中实现。
+                    </p></div>
+					<div class="panel-footer text-right">
+						<span class="label label-primary"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>您在位置 #7460-7464的标注</span>
+						<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 添加于 2021年11月18日星期四 上午9:15:00</span>
+					</div>
+				</div>
+			</article>
+        </div>
+
         </div>
     </div>
 </body>
