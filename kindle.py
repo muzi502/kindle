@@ -3,6 +3,7 @@ import sys
 import os.path
 import shutil
 import time
+import json
 from hashlib import md5
 
 HTML_HEAD = """<!DOCTYPE html>
@@ -22,6 +23,7 @@ INDEX_TITLE = """
 	<div class="container">
 		<header class="header col-md-12">
 			<div class="page-header">
+                <embed src="date.svg" type="image/svg+xml" />
 				<h1><small><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Kindle 读书笔记 </small> <span class="badge">更新于 UPDATE </span> <span class="badge"> 共 BOOKS_SUM 本书，SENTENCE_SUM 条笔记</span></h1>
 			</div>
 		</header>
@@ -119,6 +121,13 @@ def render_clippings(file_name):
             )
             all_books[book_index]["nums"] += 1
     all_books.sort(key=lambda x: x["nums"], reverse=True)
+    try:
+        json_str = json.dumps(all_books, indent=2, ensure_ascii=False)
+        with open("clippings.json", "w") as f:
+            f.write(json_str)
+        return 1
+    except:
+        return 0
 
 
 def render_index_html():
@@ -161,10 +170,45 @@ def render_books_html():
             f.write(FOOTER_CONTENT)
 
 
+def render_date_json():
+    all_dates = {}
+    for i in range(len(all_marks)):
+        mark = all_marks[i].split("\n")
+        if len(mark) == 4:
+            date = (
+                mark[1]
+                .split("|")[1]
+                .split(" ")[2]
+                .replace("年", "-")
+                .replace("月", "-")
+                .replace("日", "")
+                .split("星期")[0]
+            )
+            year = date.split("-")[0]
+            month = date.split("-")[1]
+            day = date.split("-")[2]
+            if len(month) == 1:
+                month = "0" + month
+            if len(day) == 1:
+                day = "0" + day
+            date = year + "-" + month + "-" + day
+            if date not in all_dates:
+                all_dates[date] = 1
+            all_dates[date] += 1
+    try:
+        json_str = json.dumps(all_dates, indent=2, ensure_ascii=False)
+        with open("date.json", "w") as f:
+            f.write(json_str)
+        return 1
+    except:
+        return 0
+
+
 if __name__ == "__main__":
     file_path = "source.txt" if len(sys.argv) == 1 else sys.argv[1]
     render_clippings(file_path)
     render_index_html()
     render_books_html()
+    render_date_json()
     print("书籍总数：", len(all_books))
     print("笔记总数：", len(all_marks))
