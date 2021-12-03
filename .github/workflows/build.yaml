@@ -39,7 +39,7 @@ jobs:
 
       - name: Build svg file
         run: |
-          github_poster json --json_file date.json --year 2021 --me kindleReading
+          github_poster json --json_file date.json --year 2021 --me kindleReading --background-color '#ffffff'
           mv OUT_FOLDER/json.svg date.svg
 
       - name: Config git user and user.email and push commit

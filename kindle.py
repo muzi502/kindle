@@ -175,25 +175,12 @@ def render_date_json():
     for i in range(len(all_marks)):
         mark = all_marks[i].split("\n")
         if len(mark) == 4:
-            date = (
-                mark[1]
-                .split("|")[1]
-                .split(" ")[2]
-                .replace("年", "-")
-                .replace("月", "-")
-                .replace("日", "")
-                .split("星期")[0]
-            )
-            year = date.split("-")[0]
-            month = date.split("-")[1]
-            day = date.split("-")[2]
-            if len(month) == 1:
-                month = "0" + month
-            if len(day) == 1:
-                day = "0" + day
-            date = year + "-" + month + "-" + day
+            date = re.split(r"[年月日]\s*",mark[1].split("|")[1].split(" ")[2])
+            month = date[1] if len(date[1]) == 2 else "0" + date[1]
+            day = date[2] if len(date[2]) == 2 else "0" + date[2]
+            date = date[0] + "-" + month + "-" + day
             if date not in all_dates:
-                all_dates[date] = 1
+                all_dates[date] = 0
             all_dates[date] += 1
     try:
         json_str = json.dumps(all_dates, indent=2, ensure_ascii=False)
