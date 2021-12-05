@@ -100,7 +100,7 @@ def render_clippings(file_name):
             book_url = md5(mark[0].encode("utf-8")).hexdigest()
             book_info = re.split(r"[()<>|\[\]（）《》【】｜]\s*", mark[0])
             book_name = book_info[0] if str(book_info[0]) != "" else (mark[0])
-            book_author = book_info[-2] if len(book_info) > 2 else ""
+            book_author = book_info[-2] if len(book_info) > 1 else ""
             mark_info = mark[1].split("|")
             mark_time = mark_info[1]
             mark_address = mark_info[0].strip("- ")
